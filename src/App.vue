@@ -1,7 +1,11 @@
 <template>
   <div class="app">
-    <PostForm @create="createPost"/>
-    <PostList :posts="posts"/>
+    <h1>Страница с постами</h1>
+    <my-button style="margin: 15px 0" @click="showDialog">Создать пост</my-button>
+    <my-dialog v-model:show="dialogVisible">
+      <PostForm @create="createPost"/>
+    </my-dialog>
+    <PostList :posts="posts" @remove="deletePost"/>
   </div>
 </template>
 
@@ -9,7 +13,7 @@
   import PostForm from "@/components/PostForm";
   import PostList from "@/components/PostList";
   export default {
-    components: {PostList, PostForm},
+    components: { PostList, PostForm},
     data(){
       return{
         posts: [
@@ -18,13 +22,20 @@
           {id: 3, title: 'Javascript 3', body: 'Описание поста 3'},
           {id: 4, title: 'Javascript 4', body: 'Описание поста 4'},
         ],
-
+        dialogVisible: false
       }
     },
     methods: {
       createPost(post){
-        this.posts.push(post)
+        this.posts.push(post);
+        this.dialogVisible = false;
       },
+      deletePost(post){
+        this.posts = this.posts.filter(p => p.id !== post.id)
+      },
+      showDialog(){
+        this.dialogVisible = true;
+      }
     }
   }
 </script>

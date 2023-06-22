@@ -1,24 +1,26 @@
 <template>
   <form @submit.prevent>
     <h4>Создание поста</h4>
-    <my-input v-model="post.title"
-           type="text"
-           placeholder="Название поста" />
+    <my-input
+          v-model="post.title"
+          type="text"
+          placeholder="Название поста" />
     <my-input v-model="post.body"
            type="text"
            placeholder="Описание поста" />
-    <MyButton
+    <my-button
         class="btn"
         type="submit"
         style="align-self: flex-end; margin-top: 15px"
-        @click="createPost">Создать</MyButton>
+        @click="createPost">Создать</my-button>
   </form>
 </template>
 
 <script>
 import MyInput from "@/components/UI/MyInput";
+import MyButton from "@/components/UI/MyButton";
 export default {
-  components: {MyInput},
+  components: {MyButton, MyInput},
   data(){
     return{
       post: {

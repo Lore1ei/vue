@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <h1>Страница с постами</h1>
+    <input type="text" v-model.number="modificatorValue">
     <my-button style="margin: 15px 0" @click="showDialog">Создать пост</my-button>
     <my-dialog v-model:show="dialogVisible">
       <PostForm @create="createPost"/>
@@ -22,7 +23,8 @@
           {id: 3, title: 'Javascript 3', body: 'Описание поста 3'},
           {id: 4, title: 'Javascript 4', body: 'Описание поста 4'},
         ],
-        dialogVisible: false
+        dialogVisible: false,
+        modificatorValue: ''
       }
     },
     methods: {
@@ -35,6 +37,9 @@
       },
       showDialog(){
         this.dialogVisible = true;
+      },
+      async fetchUsers(){
+
       }
     }
   }

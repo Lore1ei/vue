@@ -39,7 +39,6 @@
         this.dialogVisible = true;
       },
       async fetchUsers(){
-
       }
     }
   }

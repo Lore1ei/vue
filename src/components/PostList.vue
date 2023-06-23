@@ -27,15 +27,8 @@ export default {
 </script>
 
 <style scoped>
-.post_list,
-.post_list-enter-active,
-.post_list-leave-active {
+.post_list{
   transition: all 0.5s ease;
-}
-.post_list-enter-from,
-.post_list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
 }
 .post_list-move{
   transition: transform 0.5s ease;
